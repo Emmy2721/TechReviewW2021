@@ -6,5 +6,8 @@ urlpatterns = [
     path('products/',products, name='products'),
     path('productDetail/<int:id>', productDetail, name='detail'),
     path('newproduct/', views.newProduct, name='newproduct'),
+    path('loginmessage/', views.loginmessage, name='loginmessage'),
+    path('logoutmessage/', views.logoutmessage, name='logoutmessage'),
+]
 ]
 
