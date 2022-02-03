@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 
 
@@ -23,18 +24,32 @@ class Product(models.Model):
     producturl=models.URLField()
     description=models.TextField()
 
-    def def__str__(self):
-        return self.productname
+    def discountAmount(self):
+        self.discount=self.price * .05
+        return self.discount
+    
+    def discountPrice(self):
+        disc=self.discountAmount()
+        self.discountedprice=self.price-disc
+
 
     class Meta:
          db_table='product'  
-class review(models.Model):
+class Review(models.Model):
     title=models.CharField(max_length=255)
     user=models.ForeignKey(User, on_delete=models.CASCADE)
     product=models.ForeignKey(Product, on_delete=models.CASCADE)
     reviewdate=models.DateField()
     reviewtext=models.TextField()
-    
+
+    def discountAmount(self):
+        self.discount=self.price * .05
+        return self.discount
+    def discountPrice(self):
+        discountedPrice=self.price-self.discount 
+
+
+
 
     def __str__(self):
         return self.title
